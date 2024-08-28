@@ -1,6 +1,11 @@
 <?php
-const Pi = 3.141592653589793238462643383279502884197;
-class rectangle
+abstract class shape {
+    const Pi = 3.141592653589793238462643383279502884197;
+    abstract function getArea();
+    abstract function getCircumference();
+    abstract function drawShape();
+}
+class rectangle extends shape
 {
     private float $height;
     private float $width;
@@ -17,7 +22,7 @@ class rectangle
     {
         $this->height = $height;
     }
-    public function drawRectangle()
+    public function drawShape()
     {
         echo "<p class='detail'>The area :<span>" . $this->getArea() . "mm<sup>2</sup></span></p>";
         echo "<p class='detail'>The circumference :<span>" . $this->getCircumference() . "mm</span></p>";
@@ -32,7 +37,7 @@ class rectangle
         return $this->width * 2 + $this->height * 2;
     }
 }
-class circle
+class circle extends shape
 {
     private float $radius;
     public function __construct(float $radius)
@@ -43,7 +48,7 @@ class circle
     {
         $this->radius = $radius;
     }
-    public function drawCircle()
+    public function drawShape()
     {
         echo "<p class='detail'>The area :<span>" . round($this->getArea(),3) . "mm<sup>2</sup></span></p>";
         echo "<p class='detail'>The circumference :<span>" . round($this->getCircumference(),3) . "mm</span></p>";
@@ -51,11 +56,11 @@ class circle
     }
     public function getArea()
     {
-        return $this->radius **2 * Pi;
+        return $this->radius **2 * parent::Pi;
     }
     public function getCircumference()
     {
-        return $this->radius * 2 * Pi;
+        return $this->radius * 2 * parent::Pi;
     }
 }
 ?>
@@ -84,7 +89,7 @@ class circle
                 $tempWidth = is_numeric($_POST['width']) && $_POST['width'] > 0 ? $_POST['width'] : 50;
                 $tempHeight = is_numeric($_POST['height']) && $_POST['height'] > 0 ? $_POST['height'] : 50;
                 $rect = new rectangle($tempWidth, $tempHeight);
-                $rect->drawRectangle();
+                $rect->drawShape();
             }
             ?>
         </div>
@@ -101,7 +106,7 @@ class circle
             if (isset($_POST['circle'])) {
                 $tempRadius = is_numeric($_POST['radius']) && $_POST['radius'] > 0 ? $_POST['radius'] : 50;
                 $cir  = new circle($tempRadius);
-                $cir->drawCircle();
+                $cir->drawShape();
             } ?>
         </div>
     </div>

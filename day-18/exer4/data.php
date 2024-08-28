@@ -1,0 +1,1 @@
+[{"ensuranceType":"gold","idCounter":2,"workDays":3,"monthlySalary":1000},{"monthlySalary":900,"idCounter":2,"workDays":5,"id":2,"absence":0,"age":24,"title":"Secrtary"}]

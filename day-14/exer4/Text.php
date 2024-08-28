@@ -37,6 +37,34 @@
 
     }
 
+    function playAyah(ayahId) {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+            var data = JSON.parse(this.responseText);
+            var audio = document.getElementById('audio');
+            var audSource = document.getElementById('audioSource');
+            console.log(data.data.audio);   
+            audSource.src = data.data.audio;
+            audio.load();
+            audio.play();
+        };
+        xmlhttp.open(
+            "GET",
+            "https://api.alquran.cloud/v1/ayah/" + ayahId + "/ar.alafasy"
+        );
+        xmlhttp.send();
+    }
+    class playButton extends generalButton {
+        constructor(ayahId) {
+
+            super('play');
+            this.ayahId = ayahId;
+            this.selfButton.setAttribute('onclick', "playAyah('" + ayahId + "')");
+
+        }
+
+    }
+
     function setCookie(cname, cvalue, exdays) {
         const d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -81,6 +109,10 @@
     ?>
         <div onclick="getAyahs(this,<?= $sora ?>)" onmouseenter="forOnEnter(this)" onmouseleave="forOnLeave(this)" class="textSoraContainer" id="ts<?= $sora ?>">
             <div class="soraDetail" style="padding:3px 0px">
+                <audio id="audio" controls="controls" autoplay style="display:none;">
+                    <source src="" id="audioSource" type="audio/mp3">
+                </audio>
+
                 <p class="soraName"> <?= $soras->data[$sora - 1]->name ?></p>
                 <p class="soraRevelation"><?= $soras->data[$sora - 1]->revelationType == "Meccan" ? "مكية" : "مدنية" ?></p>
                 <p class="ayasAmount">عدد الآيات: <?= $soras->data[$sora - 1]->numberOfAyahs ?></p>
@@ -148,7 +180,9 @@
                                 buttonsDiv.style.cssText = "display:inline; padding-right:10px;";
                                 newDiv.appendChild(buttonsDiv);
                                 var ayahID = "ayah-" + sora.data.number + '-' + ayahNumber
-                                var holdButton = new copyButton(ayahID);
+                                var holdButton = new playButton(sora.data.number + ':' + ayahNumber);
+                                buttonsDiv.appendChild(holdButton.selfButton);
+                                holdButton = new copyButton(ayahID);
                                 buttonsDiv.appendChild(holdButton.selfButton);
                                 holdButton = new translateButton();
                                 buttonsDiv.appendChild(holdButton.selfButton);
