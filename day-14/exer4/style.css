@@ -1,0 +1,261 @@
+:root {
+  --color1: skyblue;
+  --color2: lightgreen;
+  --color3: lightpink;
+  --color4: lightyellow;
+  --border1: rgb(0, 83, 115);
+  --border2: rgb(0, 88, 0);
+  --border3: rgb(93, 0, 14);
+  --border4: rgb(105, 105, 0);
+}
+.back1 {
+  background-color: var(--color1);
+  border: solid 2px var(--border1);
+}
+.back2 {
+  background-color: var(--color2);
+  border: solid 2px var(--border2);
+}
+.back3 {
+  background-color: var(--color3);
+  border: solid 2px var(--border3);
+}
+.back4 {
+  background-color: var(--color4);
+  border: solid 2px var(--border4);
+}
+.back {
+  transition: all ease-in-out 0.3s;
+}
+.back:hover,
+.playing {
+  background-color: azure;
+  border: solid 2px var(rgb(0, 9, 58));
+}
+.soraContainer {
+  position: relative;
+
+  border-radius: 30px;
+  margin: 8px auto;
+  width: 68%;
+  height: 120px;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.playButton {
+  color: darkslategray;
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.soraDetail {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  
+}
+
+.logo {
+  margin-right: 20px;
+}
+nav {
+  margin-bottom: 15px;
+  direction: rtl;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(185, 255, 185);
+}
+.nav {
+  display: flex;
+  align-items: end;
+  font-size: 24px;
+}
+
+.logo-container {
+  margin-right: 20px; /* Adjust as needed */
+}
+.nac-link {
+  color: green;
+}
+.nav-link:hover {
+  background-color: green;
+  color: rgb(186, 255, 186);
+}
+.nav-item {
+  border-radius: 10px;
+  font-weight: bold;
+  margin-left: 20px; /* Adjust as needed */
+}
+.nav-item:hover {
+  background-color: green;
+  color: lightgreen;
+}
+.soraName,
+.soraRevelation,
+.ayasAmount {
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.soraName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.soraRevelation {
+  font-size: 18px;
+  font-weight: 700;
+}
+.ayasAmount {
+  font-size: 18px;
+}
+#playingSora {
+  width: 70%;
+  height: 350px;
+  border-radius: 20px;
+  background-color: azure;
+  border: solid 2px rgb(0, 9, 58);
+  margin: 8px auto 20px auto;
+}
+.myHadith {
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: greenyellow;
+  direction: rtl;
+}
+.hadith {
+  font-size: 2rem;
+  font-weight: 800;
+}
+.hadith-info {
+  font-size: 1.2rem;
+}
+#form1 {
+  display: flex;
+  justify-content: space-evenly;
+  direction: rtl;
+  width: 90%;
+  margin: 20px auto;
+}
+#hadithButton {
+  width: 8%;
+  font-weight: bolder;
+  font-size: 1.6rem;
+}
+.ayahsApart {
+  padding: 0 .5em;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+}
+
+.ayahsApart::after {
+  content: "\06DD";
+  display: block;
+  position: absolute;
+  font-size: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50%);
+}
+.ayah{
+  text-align: right;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.textSoraContainer {
+  background-color: lightgray;
+  border: none;
+  border-top: 2px solid rgb(57, 57, 57);
+  border-bottom: 2px solid rgb(57, 57, 57);
+  position: relative;
+  width: 82%;
+  margin: 0px auto -2px auto;
+  transition: all ease-in-out 0.4s;
+}
+.textSoraContainer:hover{
+  background-color: rgb(57, 57, 57);
+  border-color: #fff;
+  color: white;
+}
+#hadithInput {
+  width: 80%;
+  height: 90px;
+  background-color: azure;
+  border-radius: 10px;
+}
+
+.soraNumBackground {
+  font-family: Adobe SHIN;
+  position: absolute;
+  top: 58%;
+  left: 4%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+  white-space: nowrap;
+  /* font-family: cairo; */
+}
+.textSoraNumBackground{
+  transition: all ease-in-out 0.4s;
+  font-family: Adobe SHIN;
+  position: absolute;
+  top: 58%;
+  right: -1%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  color: rgb(46, 46, 46);
+  z-index: 0;
+  white-space: nowrap;
+
+}
+
+#playingSora {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#playingSoraName {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+  font-size: 30px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+#recieterImage {
+  width: 200px;
+  height: 160px;
+  margin: 5px auto 5px auto;
+  background-color: white;
+  border: solid 2px grey;
+  border-radius: 20px;
+}
+.controls {
+  text-align: center;
+  margin-top: 10px;
+}
+#reciters {
+  position: absolute;
+  top: 23%;
+  left: 22%;
+  width: 180px;
+  height: 55px;
+  border-radius: 14px;
+  border: solid gray 2px;
+}
+
+#timeline {
+  width: 100%;
+  margin-top: 10px;
+}

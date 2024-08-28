@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  justify-content: space-evenly;
+}
+.formBox {
+  width: 45%;
+}
+.shape {
+  margin: auto;
+}
+.shapContainer {
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.mt-7 {
+  margin-top: 75px;
+}
+
+.detail {
+  font-size: 1.4rem;
+  margin-left: 10px;
+}
+
+span {
+  font-weight: 700;
+}

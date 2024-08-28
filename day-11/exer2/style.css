@@ -1,0 +1,135 @@
+table {
+  width: 95%;
+  margin: auto;
+  margin-right: 60px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+td i {
+  font-size: 34px;
+}
+
+td:nth-child(1) {
+  width: 40px;
+}
+
+tr:nth-child(1) {
+  background-color: brown;
+  color: wheat;
+}
+
+tr:nth-child(even) {
+  background-color: bisque;
+}
+
+.folderTile {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  margin-top: -5px;
+  width: 30px;
+  height: 5px;
+  background-color: goldenrod;
+  color: goldenrod;
+}
+
+/* .folder {
+            border-radius: 5px;
+            width: 70px;
+            height: 50px;
+            background-color: goldenrod;
+            border-top-left-radius: 0px;
+            } */
+.folder {
+  color: goldenrod;
+}
+
+.dull {
+  color: gray;
+}
+
+.live {
+  color: deepskyblue;
+}
+
+/* .fileTile {
+            position: absolute;
+            margin-top: -9px;
+            margin-left: 40px;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            background-color: white;
+            color: white;
+        } */
+#fileBox {
+  width: 93%;
+  border: solid 2px grey;
+  box-shadow: inset 0px 0px 5px grey;
+  border-radius: 12px;
+  margin: auto;
+  padding: 15px;
+}
+#fileContent {
+  font-size: 12px;
+  text-wrap: wrap;
+}
+.fileData {
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  padding: 15px;
+  border-top-right-radius: 10px;
+  height: 20px;
+  background-color: grey;
+}
+tr {
+  text-align: left;
+  transition: all ease-in-out 0.2s;
+}
+tr:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+h2 {
+  margin-left: 15px;
+}
+
+.action {
+  margin: 2px;
+  background-color: brown;
+  color: wheat;
+  transition: ease-in-out all 0.3s;
+  padding: 5px;
+  border-radius: 4px;
+  border: brown 2px solid;
+}
+
+.action:hover {
+  color: brown;
+  border: brown 2px solid;
+  background-color: wheat;
+}
+
+td,
+tr {
+  padding: 10px;
+}
+
+/* .file {
+            width: 50px;
+            height: 70px;
+            background-color: gray;
+        } */

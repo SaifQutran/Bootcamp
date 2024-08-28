@@ -1,0 +1,71 @@
+body {
+  justify-content: space-evenly;
+}
+main {
+  margin: auto;
+  margin-top: 10%;
+  width: 70%;
+  height: 90%;
+}
+header {
+
+  padding: 25px 0px;
+  background-color: orange;
+  width: 100%;
+  border: solid 2px darkblue;
+}
+h1 {
+  color: white;
+  margin-left: 10px;
+}
+label {
+  color: white;
+  font-weight: bolder;
+  
+}
+input:not([type="radio"], [type="checkbox"]) {
+  width: 150px;
+  padding: 2px;
+}
+#days {
+  width: 30px;
+}
+#months {
+  width: 50px;
+}
+#years {
+  width: 40px;
+}
+
+table {
+  margin: auto;
+  
+}
+
+tr td:first-child {
+  text-align: right;
+}
+tr td:last-child {
+  text-align: left;
+}
+
+form {
+  width: 100%;
+  height: 80%;
+  background-color: darkblue;
+  border: solid 2px darkblue;
+}
+footer {
+  height: 10%;
+  background-color: orange;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button{
+    color: white    ;
+    padding:10px 30px;
+    margin:15px 5px;
+
+}

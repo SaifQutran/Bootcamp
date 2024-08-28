@@ -1,0 +1,50 @@
+body {
+  text-align: center;
+}
+main {
+  padding-top: 10px;
+  background-color: rgb(183, 183, 183);
+  margin: auto;
+  width: 80%;
+  justify-content: center;
+}
+hr {
+  margin-top: 10px;
+  width: 95%;
+  height: 10px;
+  border: none;
+  background-color: red;
+}
+#space{
+  display: flex;
+  justify-content: space-evenly;
+}
+div {
+  padding: 5px;
+  margin: auto;
+  border: 2px solid red;
+  width: 60%;
+  justify-content: space-evenly;
+}
+span {
+  
+  font-weight: 500;
+}
+table {
+  width: 95%;
+  margin: 0px auto 0px auto;
+}
+h3{
+  text-align: center;
+}
+p {
+}
+td {
+  vertical-align: top;
+  width: 150px;
+  text-align: left;
+}
+img {
+  border: black 3px solid;
+  width: 95%;
+}

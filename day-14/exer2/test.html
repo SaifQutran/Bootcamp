@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+    />
+  </head>
+  <body>
+    <div id="demo">
+      <table class="table table-striped">
+        <tr>
+          <th colspan="2">Country</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td><i class="fi fi-us"></i></td>
+          <td>United States</td>
+          <td id="usaPrice"></td>
+        </tr>
+        <tr>
+          <td><i class="fi fi-sa"></i></td>
+          <td>Saudi Arabia</td>
+          <td id="saPrice"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="result1"></td>
+          <td id="result2"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="container">
+      <form action="moneyCoversion.php">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" name="amount" id="amount" class="form-control" />
+        <label for="currency" class="form-label">Currency</label>
+        <input
+          list="currs"
+          name="currency"
+          id="currency"
+          class="form-control"
+        />
+        <datalist id="currs">
+          <option value="SR"></option>
+          <option value="USD"></option>
+        </datalist>
+        <center>
+          <input
+            type="button"
+            onclick="cal()"
+            value="Calculate"
+            class="btn btn-primary mt-3"
+          />
+        </center>
+      </form>
+      <div id="result"></div>
+    </div>
+    <script>
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function () {
+        var data = JSON.parse(this.responseText);
+
+        document.getElementById("usaPrice").innerHTML = data.USD;
+        document.getElementById("saPrice").innerHTML = data.SR;
+      };
+      xmlhttp.open(
+        "GET",
+        "http://localhost/bootCamp/day-14/exer2/moneyCoversion.php"
+      );
+      xmlhttp.send();
+      function cal() {
+        var amount = document.getElementById("amount").value;
+        var currency = document.getElementById("currency").value;
+        var to =
+          "http://localhost/bootCamp/day-14/exer2/moneyCoversion.php?amount=" +
+          amount +
+          "&currency=" +
+          currency;
+
+        const cmlhttp = new XMLHttpRequest();
+        cmlhttp.onload = function () {
+          var data = JSON.parse(this.responseText);
+          document.getElementById("result1").innerHTML = data;
+          console.log(data);
+          console.log(to);
+        };
+        cmlhttp.open("GET", to);
+        cmlhttp.send();
+      }
+    </script>
+  </body>
+</html>

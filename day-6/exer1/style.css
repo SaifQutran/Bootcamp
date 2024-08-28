@@ -1,0 +1,214 @@
+:root {
+  --text-color: rgba(0, 0, 0, 0.9);
+}
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: rgb(137, 207, 235);
+  justify-content: space-evenly;
+  
+}
+#bodyId {
+  background-color: lightgray;
+}
+div {
+  margin-top: 15px;
+}
+main {
+  background-color: rgba(128, 128, 128, 0.495);
+  margin: auto;
+  border-radius: 50px;
+  margin-top: 3%;
+  width: 50%;
+  height: 70%;
+}
+header {
+  padding: 25px 0px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  color: var(--text-color);
+}
+.profil {
+  margin: 0px auto;
+  width: 40%;
+  background-color: azure;
+  border-radius: 10px;
+}
+.rejected{
+  color: red;
+  text-align: center;
+}
+.Name,
+.username,
+.birthdate,
+.profilData,
+.noLine,.email,.phone {
+  display: inline;
+}
+
+.username {
+  position: absolute;
+  top: 60px;
+  font-size: 24px;
+}
+.Name {
+  position: absolute;
+  top: 42px;
+  font-size: 20px;
+}
+.birthdate {
+  position: absolute;
+  top: 85px;
+  font-size: 20px;
+}
+
+.profilImg {
+  /* position: relative;
+  left: 90%; */
+  margin: 20px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: solid 2px grey;
+  object-fit: cover;
+  object-position: center;
+}
+.email {
+  position: absolute;
+  top: 140px;
+
+  font-size: 16px;
+}
+hr{
+  height: 2px;
+  border: none;
+  background-color: darkgray;
+}
+.phone {
+  position: absolute;
+  top: 165px;
+  font-size: 16px;
+}
+
+.labelclass {
+  margin: 0px;
+  color: var(--text-color);
+  font-weight: bolder;
+}
+label {
+  color: var(--text-color);
+  font-weight: bolder;
+  text-align: left;
+}
+input:not(
+    [type="radio"],
+    [type="checkbox"],
+    input[type="submit"],
+    input[type="button"]
+  ),
+.gender {
+  background-color: white;
+  border: 3px solid darkslategray;
+  margin: auto;
+  width: 200px;
+  padding: 15px;
+  border-radius: 20px;
+}
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+input[type="radio"] {
+  margin: 0px;
+}
+
+label[for="imgInp"] {
+  background-size: contain;
+  background-color: rgba(240, 248, 255, 0.6);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px grey solid;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  text-align: center;
+}
+input[type="file"] {
+  display: none;
+}
+#file-upload-button {
+  height: 40px;
+}
+#days {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 30px;
+}
+#months {
+  border-radius: 2px;
+  width: 50px;
+}
+#years {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  width: 40px;
+}
+
+form {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80%;
+}
+
+footer {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input,
+.gender {
+  color: var(--text-color);
+  margin: 20px 5px;
+  border-radius: 20px;
+}
+#cancel:hover {
+  background-color: var(--text-color);
+  color: white;
+  border: solid 2px white;
+  font-weight: 700;
+}
+#cancel {
+  font-size: 20px;
+  transition: all ease-in-out 0.3s;
+  background-color: white;
+  color: var(--text-color);
+  border: solid 2px var(--text-color);
+  padding: 20px 30px;
+  width: 150px;
+}
+#submit:hover {
+  background-color: white;
+  color: var(--text-color);
+  border: solid 2px var(--text-color);
+  font-weight: 700;
+}
+#submit {
+  color: white;
+  font-size: 20px;
+  transition: all ease-in-out 0.3s;
+  width: 150px;
+  padding: 20px 30px;
+  background-color: var(--text-color);
+  border: solid 2px white;
+}

@@ -1,0 +1,84 @@
+body,
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  height: 100%;
+  margin: 0px;
+}
+.bg-image {
+  background-image: url("pexels-pixabay-161247.jpg");
+  margin: 0px;
+  /* filter: blur(6px);
+  -webkit-filter: blur(6px); */
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.with-blur-backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+  height: 100%;
+  position: relative;
+} 
+.card {
+  position: relative;
+  width: 25%;
+  height: auto;
+  border-radius: 25px;
+  background-color: #e6ffb3;
+  overflow: hidden;
+}
+
+.card-header {
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.weekend {
+  color: green;
+}
+td {
+  font-size: larger;
+  padding: 8px;
+  border-radius: 50px;
+  text-align: center;
+}
+.date {
+  transition: all ease-in-out 0.4s;
+}
+.date:hover {
+  background-color: rgba(0, 149, 7, 0.311);
+}
+table {
+  width: 100%;
+}
+.day {
+  font-weight: 900;
+}
+.today {
+  background-color: green;
+}
+.month {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(139, 255, 112, 0.399);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  text-align: left;
+}
+.month-text {
+  font-weight: bolder;
+  font-size: 24px;
+  margin: 15px;
+}

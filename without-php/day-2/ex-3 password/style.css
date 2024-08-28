@@ -1,0 +1,52 @@
+*{
+  font-size: 40px;
+}
+body{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(183, 183, 183);
+
+}
+table{
+  
+  margin: auto;
+  width: 40%;
+  margin-top: 150px;
+}
+td{
+  text-align: center;
+  padding: 20px;
+}
+p{
+
+  padding-top:0px;
+  text-align: left;
+  margin-left: 10px;
+}
+i{
+  font-size: 100px;
+}
+.mini-form{
+  background-color: beige;
+}
+button{
+  height: 54px;
+  width: 20%;
+  background-color: darkblue;
+  color: aliceblue;
+  border: none;
+  transition: all ease-in-out 0.5s;
+
+}
+button:hover{
+
+    background-color: rgb(0, 0, 61);
+    color: white;
+    
+}
+input{
+    height: 50px;
+    padding: 0px;
+    width: 75%;
+    border: solid darkblue 2px;
+    
+}

@@ -1,0 +1,65 @@
+:root{
+    --lightLogo:	#1DB954;
+    --darkBack:#101010;
+    --lightBack:#f0f0f0;
+    --darkContent:#ffffff;
+    --lightContent:#101010;
+    --darkForm: rgb(63, 63, 63);
+    --lightForm:#e3e3e3;
+    --lightIcon:rgb(30, 79, 184);
+    --darkIcon:rgb(164, 193, 255);
+}
+body {
+  background-color: rgb(248, 248, 248);
+  justify-content: center;
+  display: flex;
+}
+.darkIcon{
+    color: var(--darkIcon);
+}
+.lightIcon{
+    color: var(--lightIcon);
+}
+.lightForm{
+
+    background-color: var(--lightForm);
+}
+.darkForm{
+
+    background-color: var(--darkForm);
+}
+.darkBack{
+    background-color: var(--darkBack);
+}
+.lightBack{
+    background-color: var(--lightBack);
+}
+.lightContent{
+    color: var(--lightContent);
+    
+}
+.darkContent{
+    color: var(--darkContent);
+    
+}
+.spotify{
+    color: var(--lightLogo);
+}
+.transBack{
+
+    background-color: #ffffff00;
+}
+.formContainer {
+  margin-top: 10vh;
+  padding: 70px;
+  width: 30%;
+  border-radius: 10px;
+}
+.formHeader {
+  justify-content: center;
+  display: flex;
+}
+.logo {
+  font-size: 6em;
+  
+}

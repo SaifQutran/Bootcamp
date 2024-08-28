@@ -1,0 +1,45 @@
+td {
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+}
+table {
+  margin: 20px;
+  transition: ease-in-out 0.5s;
+}
+table:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+div {
+  width: 100%;
+  border: 5px solid black;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(0, 0, 0, .15);
+            background-color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            height: 50px;
+            width: 100%;
+            /* Full width of its parent */
+            white-space: nowrap;
+
+}
+p{                        position: absolute;
+            width: auto;
+            height: 100%;
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+            /* Start off the right edge */
+            transform: translateX(100%);
+            /* Animate to the left */
+            animation: scroll-left 20s linear infinite;
+        }
+ @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }

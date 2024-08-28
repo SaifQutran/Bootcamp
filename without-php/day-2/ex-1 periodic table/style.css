@@ -1,0 +1,151 @@
+:root {
+  --g: rgb(0, 186, 0);
+  --o: rgb(255, 68, 0);
+  --y: rgb(251, 255, 25);
+  --b: rgb(11, 92, 255);
+  --w: white;
+}
+body {
+  background-color: #002;
+  justify-content: center;
+  
+}
+
+#myPopupurl {
+  color: white;
+}
+.overlay-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+#url {
+text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #444;
+  
+  display: block;
+}
+
+.btn-close-popup {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-close-popup {
+  margin-top: 12px;
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-close-popup:hover {
+  background-color: #4caf50;
+}
+
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for popup */
+.overlay-container.show {
+  display: flex;
+  opacity: 1;
+}
+.container {
+  position: absolute;
+  margin-top: 80px;
+  width: 100%;
+}
+table {
+  margin: auto;
+}
+.element {
+  border: solid 3px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px 50px;
+}
+.y {
+  box-shadow: 0px 0px 7px var(--y);
+  border-color: var(--y);
+
+  color: var(--y);
+  transition: all ease-in-out 0.5s;
+}
+.y:hover {
+  background-color: var(--y);
+  transform: scale(1.1, 1.1);
+  color: black;
+}
+.g {
+  box-shadow: 0px 0px 7px var(--g);
+  border-color: var(--g);
+
+  color: var(--g);
+  transition: all ease-in-out 0.5s;
+}
+.g:hover {
+  transform: scale(0.8, 0.8);
+  background-color: var(--g);
+  color: var(--w);
+  box-shadow: 0px 0px 7px var(--o);
+}
+.o {
+  border-color: var(--o);
+  color: var(--o);
+
+  transition: all linear 1s;
+
+  box-shadow: 0px 0px 7px var(--o);
+}
+.o:hover {
+  transform: rotate(360deg);
+  background-color: var(--o);
+  color: var(--w);
+}
+.b {
+  box-shadow: 0px 0px 7px var(--b);
+  border-color: var(--b);
+
+  color: var(--b);
+  transition: all ease-in-out 0.5s;
+}
+.b:hover {
+  background-color: var(--b);
+  color: var(--w);
+  transform: translate(50px, 0);
+}
