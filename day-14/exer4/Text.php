@@ -6,30 +6,26 @@
 </head>
 <script>
     class generalButton {
-        constructor(buttonType) {
+        constructor(buttonType, buttonId) {
             this.selfButton = document.createElement('button');
-            this.selfButton.classList.add('btn', 'btn-dark', 'btn-sm', 'm-1');
+            this.selfButton.classList.add('btn', 'btn-dark', 'btn-sm', 'm-1', 'rounded-3');
+            this.selfButton.id = buttonId;
             var buttonSymbol = document.createElement('i');
             buttonSymbol.classList.add('fa', 'fa-' + buttonType);
-            buttonSymbol.style.cssText = "font-size:1.2rem;";
+            buttonSymbol.style.cssText = "font-size:1.9rem;";
             this.selfButton.appendChild(buttonSymbol);
         }
     }
 
     function copyAyah(ayahId) {
-        // Get the text field
         var copyText = document.getElementById(ayahId);
         console.log(ayahId);
-        // Select the text field
-
-
-        // Copy the text inside the text field
         navigator.clipboard.writeText(copyText.innerHTML);
     }
     class copyButton extends generalButton {
-        constructor(ayahId) {
+        constructor(ayahId, buttonId) {
 
-            super('copy');
+            super('copy', buttonId);
             this.ayahId = ayahId;
             this.selfButton.setAttribute('onclick', "copyAyah('" + ayahId + "')");
 
@@ -43,7 +39,7 @@
             var data = JSON.parse(this.responseText);
             var audio = document.getElementById('audio');
             var audSource = document.getElementById('audioSource');
-            console.log(data.data.audio);   
+            console.log(data.data.audio);
             audSource.src = data.data.audio;
             audio.load();
             audio.play();
@@ -55,9 +51,9 @@
         xmlhttp.send();
     }
     class playButton extends generalButton {
-        constructor(ayahId) {
+        constructor(ayahId, buttonId) {
 
-            super('play');
+            super('play', buttonId);
             this.ayahId = ayahId;
             this.selfButton.setAttribute('onclick', "playAyah('" + ayahId + "')");
 
@@ -78,30 +74,96 @@
     class werdButton extends generalButton {
 
 
-        constructor(ayahId) {
-            super('bookmark');
+        constructor(ayahId, buttonId) {
+            super('bookmark', buttonId);
             this.ayahId = ayahId;
             this.selfButton.setAttribute('onclick', "setWerd('" + ayahId + "')");
         }
     }
+
+    function getTranslation(ayahId, buttonId) {
+        const engTransHttp = new XMLHttpRequest();
+        engTransHttp.onload = function() {
+            document.getElementById(buttonId).onclick = "";
+            var data = JSON.parse(this.responseText);
+            var ayahDiv = document.getElementById('ayah' + ayahId.replace(':', '/') + 'div')
+            // console.log(ayahDiv.innerHTML);
+            var translationBox = document.createElement('p');
+            translationBox.style.cssText = "text-align:left; direction:ltr;font-size: 17px; border:2px #393939 solid; margin-top:5px; padding:5px; border-right:0px; border-left:0px;    margin-inline-start:1em;    margin-inline-end:1em;";
+            translationBox.innerHTML = data.data.text;
+            console.log(data.data.text);
+            ayahDiv.appendChild(translationBox);
+        };
+        engTransHttp.open(
+            "GET",
+            "https://api.alquran.cloud/v1/ayah/" + ayahId + "/en.asad"
+        );
+        engTransHttp.send();
+        const frTransHttp = new XMLHttpRequest();
+        frTransHttp.onload = function() {
+            document.getElementById(buttonId).onclick = "";
+            var data = JSON.parse(this.responseText);
+            var ayahDiv = document.getElementById('ayah' + ayahId.replace(':', '/') + 'div')
+            // console.log(ayahDiv.innerHTML);
+            var translationBox = document.createElement('p');
+            translationBox.style.cssText = "text-align:left;direction:ltr; font-size: 17px; border:2px #393939 solid; margin-top:5px; padding:5px; border-right:0px; border-left:0px;    margin-inline-start:1em;    margin-inline-end:1em;";
+            translationBox.innerHTML = data.data.text;
+            console.log(data.data.text);
+            ayahDiv.appendChild(translationBox);
+        };
+        frTransHttp.open(
+            "GET",
+            "https://api.alquran.cloud/v1/ayah/" + ayahId + "/fr.hamidullah"
+        );
+        frTransHttp.send();
+    }
     class translateButton extends generalButton {
-        constructor() {
-            super('globe');
-            //this.selfButton.href = 'copt' + to;
+        constructor(ayahId, buttonId) {
+            super('globe', buttonId);
+            this.ayahId = ayahId;
+            this.selfButton.setAttribute('onclick', "getTranslation('" + ayahId + "','" + buttonId + "')");
         }
     }
 
-    class tafserButton extends generalButton {
-        constructor() {
-            super('book');
-            //this.selfButton.href = 'copt' + to;
+    function getTafseer(ayahId, buttonId) {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+            document.getElementById(buttonId).onclick = "";
+            var data = JSON.parse(this.responseText);
+            var ayahDiv = document.getElementById('ayah' + ayahId + 'div')
+            console.log(ayahDiv.innerHTML);
+            var tafseerBox = document.createElement('p');
+            tafseerBox.style.cssText = "font-size: 17px; border:2px #393939 solid; margin-top:5px; padding:5px; border-right:0px; border-left:0px;    margin-inline-start:1em;    margin-inline-end:1em;";
+            tafseerBox.innerHTML = data.text;
+            console.log(data.text);
+            ayahDiv.appendChild(tafseerBox);
+        };
+        xmlhttp.open(
+            "GET",
+            "http://api.quran-tafseer.com/tafseer/3/" + ayahId
+        );
+        xmlhttp.send();
+    }
+    class tafseerButton extends generalButton {
+        constructor(ayahId, buttonId) {
+            super('book-quran', buttonId);
+            this.ayahId = ayahId;
+            this.selfButton.setAttribute('onclick', "getTafseer('" + ayahId + "','" + buttonId + "')");
         }
+
     }
 </script>
 
 <body>
     <?php include 'nav.html'; ?>
     <?php
+    if(isset($_COOKIE['werd'])){
+        ?>
+        <div class="werd-container">
+           <?= $_COOKIE['werd']?> لقد وصلت في وردك إلى 
+        </div>
+        <?php
+    }
     error_reporting(E_ERROR);
     $data = file_get_contents("http://api.alquran.cloud/v1/surah");
     $soras = json_decode($data);
@@ -163,7 +225,7 @@
                             for (var ayah = 0; ayah < sora.data.numberOfAyahs; ayah++) {
                                 var newDiv = document.createElement("div");
                                 newDiv.classList.add('ayah');
-                                newDiv.style.cssText = " margin:15px 20px 15px 0px; direction:rtl; text-align: right;font-size: 2rem;font-family: Arial, Helvetica, sans-serif;";
+                                newDiv.style.cssText = " margin:15px 20px 15px 20px; direction:rtl; text-align: right;font-size: 2rem;font-family: Arial, Helvetica, sans-serif;";
                                 var newContent = document.createTextNode(sora.data.ayahs[ayah].text);
                                 var ayahText = document.createElement("p");
                                 ayahText.style.cssText = "display:inline;";
@@ -171,6 +233,7 @@
                                 newDiv.appendChild(ayahText);
                                 var ayahApart = document.createElement('span');
                                 var ayahNumber = (ayah + 1).toString();
+                                newDiv.id = 'ayah' + sora.data.number + '/' + ayahNumber + 'div';
                                 ayahText.id = "ayah-" + sora.data.number + '-' + ayahNumber;
                                 ayahApart.appendChild(document.createTextNode(ayahNumber.toIndiaDigits()));
                                 ayahApart.classList.add('ayahsApart');
@@ -180,15 +243,15 @@
                                 buttonsDiv.style.cssText = "display:inline; padding-right:10px;";
                                 newDiv.appendChild(buttonsDiv);
                                 var ayahID = "ayah-" + sora.data.number + '-' + ayahNumber
-                                var holdButton = new playButton(sora.data.number + ':' + ayahNumber);
+                                var holdButton = new playButton(sora.data.number + ':' + ayahNumber, 'play-' + ayahID);
                                 buttonsDiv.appendChild(holdButton.selfButton);
-                                holdButton = new copyButton(ayahID);
+                                holdButton = new copyButton(ayahID, 'copy-' + ayahID);
                                 buttonsDiv.appendChild(holdButton.selfButton);
-                                holdButton = new translateButton();
+                                holdButton = new translateButton(sora.data.number + ':' + ayahNumber, 'translate-' + ayahID);
                                 buttonsDiv.appendChild(holdButton.selfButton);
-                                holdButton = new tafserButton()
+                                holdButton = new tafseerButton(sora.data.number + '/' + ayahNumber, 'tafseer-' + ayahID)
                                 buttonsDiv.appendChild(holdButton.selfButton);
-                                holdButton = new werdButton(ayahID)
+                                holdButton = new werdButton(ayahID, 'werd-' + ayahID)
                                 buttonsDiv.appendChild(holdButton.selfButton);
                             }
                             //alert('textSoraNumBackground' + soraNumber);
